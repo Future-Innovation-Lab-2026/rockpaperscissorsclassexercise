@@ -4,8 +4,11 @@
     {
         static void Main(string[] args)
         {
-            UserDisplayConsole display = new UserDisplayConsole();
-            display.Display();
+            RockPaperScissorsGame rockPaperScissorsGame = new RockPaperScissorsGame();
+            rockPaperScissorsGame.Play();
+            
+            //   UserDisplayConsole display = new UserDisplayConsole();
+         //   display.Display();
         }
     }
 }

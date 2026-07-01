@@ -36,21 +36,31 @@ namespace RpsScoreApp
             return null;
         }
 
-        public PlayerScore GetWinner()
+        public OverallResult GetWinner()
         {
-            if (player1Score.GetPlayerScore() == player2Score.GetPlayerScore())
-                return null;
+            PlayerScore winner=null;
+            GameResult gameResult;
 
-            if (player1Score.GetPlayerScore() > player2Score.GetPlayerScore())
+            if (player1Score.GetPlayerScore() == player2Score.GetPlayerScore())
             {
-                return player1Score;
+                gameResult = GameResult.Tie;
             }
             else
             {
-                return player2Score;
+                if (player1Score.GetPlayerScore() > player2Score.GetPlayerScore())
+                {
+                    winner = player1Score;
+                    gameResult = GameResult.Win;
+                }
+                else
+                {
+                    winner = player2Score;
+                    gameResult = GameResult.Win;
+                }
             }
 
-          
+            OverallResult result = new OverallResult(gameResult, winner);
+            return result;
         }
     }
 }

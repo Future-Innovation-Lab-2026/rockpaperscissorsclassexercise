@@ -9,7 +9,7 @@ namespace RpsScoreApp
         public void Display()
         {
 
-            int rounds = 5;
+            int rounds = 2;
             int incorrectInput = 0;
            // int allowedIncorrectInput = 5;
 
@@ -67,11 +67,14 @@ namespace RpsScoreApp
 
          
 
-                PlayerScore overallWinner = tracker.GetWinner();
+              OverallResult overallWinner = tracker.GetWinner();
 
-                if (overallWinner != null)
+               GameResult result = overallWinner.GetResult();
+               PlayerScore winner = overallWinner.GetWinner();
+
+                if (result == GameResult.Win)
                 {
-                    Console.WriteLine($"The overall winner is: {overallWinner.GetPlayerName()} ");
+                    Console.WriteLine($"The overall winner is: {winner.GetPlayerName()} ");
                 }
                 else
                 {
